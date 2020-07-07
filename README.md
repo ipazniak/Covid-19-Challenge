@@ -8,7 +8,7 @@
 
 A native macOS Swift-written application, performing the following steps:
 
-- Retrieving JSON data from <a href="https://covidtracking.com/api/v1/states/current.json" target="_blank">API</a> and converting it to CSV format
+- Retrieving <a href="https://covidtracking.com/api/v1/states/current.json" target="_blank">data</a> in JSON format from <a href="https://covidtracking.com/data/api" target="_blank">covidtracking.com</a> API and converting it to CSV format
 - Checking user connection status to z/OSMF
 - Creating a sequential `Z99998.PS` data set and uploading CSV data to it
 - Uploading COBOL and JCL source code to the existing data sets as `Z99998.CBL(COVID19)` and `Z99998.JCL(COVID19J)`
@@ -27,10 +27,19 @@ The following environment and software is necessary to build and run:
 
 ## Usage
 
-`UserID` and other specific information can be easily edited for the corresponding values in `String+Constants.swift` file, for example:
+Make sure you change the default `zId` (which is `Z99998`) to your own Mainframe ID. This and other user-specific information can be easily edited in `String+Constants.swift` file, for example:
 ```swift
 static let zId = "Z99998"
 static let dataSetMemberCBL = "COVID19"
 static let internalDataSet = "COVID-REC"
 static let externalDataSet = "COVIDREC"
 ```
+
+## Screenshots
+![Loading JSON data from API...](/../screenshots/Scrshots/COVID-19%20Challenge01.jpg?raw=true "Loading JSON data from API...")
+![Checking Zowe connection status...](/../screenshots/Scrshots/COVID-19%20Challenge02.jpg?raw=true "Checking Zowe connection status...")
+![Performing Zowe create dataSet command...](/../screenshots/Scrshots/COVID-19%20Challenge03.jpg?raw=true "Performing Zowe create dataSet command...")
+![Performing Zowe upload command...](/../screenshots/Scrshots/COVID-19%20Challenge04.jpg?raw=true "Performing Zowe upload command...")
+![Performing Zowe submit job command...](/../screenshots/Scrshots/COVID-19%20Challenge05.jpg?raw=true "Performing Zowe submit job command...")
+![Performing Zowe view job spool file...](/../screenshots/Scrshots/COVID-19%20Challenge06.jpg?raw=true "Performing Zowe view job spool file...")
+![Displaying COBOL program execution output](/../screenshots/Scrshots/COVID-19%20Challenge07.jpg?raw=true "Displaying COBOL program execution output")
